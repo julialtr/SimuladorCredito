@@ -1,11 +1,14 @@
 import { DadosEmprestimo } from "../interfaces/DadosEmprestimo";
 
 export function validarDados(dados: DadosEmprestimo): boolean {
+  const hoje = new Date();
+
   if (
     dados.dataNascimento === null ||
     dados.dataNascimento.getDate() <= 0 ||
     dados.dataNascimento.getMonth() <= 0 ||
-    dados.dataNascimento.getFullYear() <= 0
+    dados.dataNascimento.getFullYear() <= 0 ||
+    dados.dataNascimento > hoje
   )
     return false;
 
