@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './Main.tsx';
+import App from './components/Main.tsx';
 import reportWebVitals from './reportWebVitals';
+
+import "primereact/resources/themes/lara-light-indigo/theme.css";
+import "primereact/resources/primereact.min.css";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

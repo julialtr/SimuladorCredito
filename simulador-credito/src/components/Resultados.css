@@ -1,0 +1,25 @@
+.resultados > h4 {
+  color: #4f51c0;
+}
+
+.resultados-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.resultados-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-right: 50px;
+  margin-top: 10px;
+  font-size: 14px;
+
+  label {
+    margin-bottom: 10px;
+  }
+
+  input {
+    min-width: 230px;
+  }
+}

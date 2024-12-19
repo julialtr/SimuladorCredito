@@ -28,48 +28,6 @@ header {
   justify-content: center;
 }
 
-.inputs > h4 {
-  color: #4f51c0;
-}
-
-.inputs-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.inputs-container-input {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  margin-right: 50px;
-  margin-top: 10px;
-  font-size: 14px;
-
-  label {
-    margin-bottom: 10px;
-  }
-
-  .p-inputnumber-button {
-    background-color: #4f51c0;
-    border: none;
-  }
-
-  .p-button-icon-only {
-    background-color: #4f51c0;
-  }
-
-  .p-calendar {
-    min-width: 230px;
-
-    input {
-      min-width: 180px;
-    }
-  }
-  input {
-    min-width: 230px;
-  }
-}
-
 .mensagem-erro {
   width: 100%;
   justify-content: center;
