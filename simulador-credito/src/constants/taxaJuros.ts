@@ -3,12 +3,12 @@ export const taxaJuros = (dataNascimento: Date): number => {
 
   let idade = hoje.getFullYear() - dataNascimento.getFullYear();
 
-  if (hoje.getMonth() > dataNascimento.getMonth()) idade++;
+  if (hoje.getMonth() < dataNascimento.getMonth()) idade--;
   else if (
     hoje.getMonth() === dataNascimento.getMonth() &&
-    hoje.getDay() >= dataNascimento.getDay()
+    hoje.getDate() < dataNascimento.getDate()
   )
-    idade++;
+    idade--;
 
   if (idade <= 25) return 0.05;
 
