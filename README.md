@@ -1,38 +1,76 @@
-# SimuladorCredito
+# Simulador de Crédito
 Aplicação Web para simulação de crédito de acordo com a entrada provida pelo usuário.
 
-# Documentação
-Essa aplicação tem por objetivo, a partir das entradas de Valor de Empréstimo, Pagamento em Meses e Data de Nascimento, trazer de retorno para o usuário uma simulação de um empréstimo com parcelas fixas. As informações de retorno são Valor Total a Pagar, Valor Mensal das Parcelas e Total de Juros.
+# Exemplos de Uso da Aplicação
+Essa aplicação tem por objetivo, a partir das entradas de Valor de Empréstimo, Pagamento em Meses e Data de Nascimento, trazer de retorno para o usuário uma simulação de um empréstimo com parcelas fixas. As informações de retorno são Valor Total a Pagar, Valor Mensal das Parcelas e Total de Juros. Com as informações de entrada, é feito o seguinte cálculo:
 
-# Configuração
+
+![image](https://github.com/user-attachments/assets/4ad690ff-9bc6-4688-b7bc-f6228f98a9a2)
+
+
+A Taxa de Juros também depende da faixa etária em que o requisitante se encontra:
+
+
+![image](https://github.com/user-attachments/assets/faeac307-3477-4705-85f9-b5bdd061b813)
+
+
+Portanto, alguns casos de teste são:
+1. Entrada
+- Valor do Empréstimo: 10.000
+- Prazo de Pagamento (Em meses): 12
+- Data de Nascimento: 19/12/2006
+
+
+Nesse caso, o requisitante tem 18 anos, considerando a data da escrita desta documentação (19/12/2024), entrando na faixa de 5% de juros. Aplicando esses valores na fórmula o resultado é demonstrado abaixo.
+
+
+2. Saída
+- Valor Total a Pagar: 10.272,84
+- Valor Mensal das Parcelas: 856,07
+- Total de Juros: 272.84
+
+
+1. Entrada
+- Valor do Empréstimo: 15.000,99
+- Prazo de Pagamento (Em meses): 36
+- Data de Nascimento: 19/12/1980
+
+
+Nesse caso, o requisitante tem 44 anos, considerando a data da escrita desta documentação (19/12/2024), entrando na faixa de 2% de juros ao ano. Aplicando esses valores na fórmula o resultado é demonstrado abaixo.
+
+
+2. Saída
+- Valor Total a Pagar: 15.468,12
+- Valor Mensal das Parcelas: 429,67
+- Total de Juros: 467,13
+
+# Instruções de setup
     Node versão 18.20.5
     React versão 18.2.0
     Biblioteca web-vitals
     Biblioteca primereact
+    Biblioteca eslint
+    Biblioteca jest versão 29.0.0
+    Biblioteca ts-jest, @types/jest, @testing-library/jest-dom e @types/react
 
 # Passo a passo para executar
-    Clonar o repositório
-    Instalar dependências com o npm install
-    Dar start na aplicação pelo comando npm start
+- Clonar o repositório
+- Instalar dependências com o npm install
+- Dar início à aplicação pelo comando npm start 
 
-# Decisões de Arquitetura
-Foi utilizado o Typescript ao invés do Javacript por ser uma linguagem tipada, juntamente com o framework React.
+# Decisões de Arquitetura e Estrutura do Projeto
+Foi utilizado a linguagem de programação Typescript juntamente com o framework React. Para testes, foi utilizada a biblioteca Jest.
 
-Decidi separar o projeto da seguinte forma:
-    node_modules: as dependências do projeto
-    public: por padrão, o ponto de entrada da execução do projeto
-    src: as configurações e o código-fonte
+Separação principal do projeto:
+- node_modules: pasta em que estão localizadas as dependências do projeto
+- public: pasta em que está localizado, por padrão, o ponto de entrada da execução do projeto
+- src: pasta em que estão localizadas as configurações do projeto e o código-fonte
 
-Adentrando no src, o Main.tsx e o Main.css é onde está o corpo da aplicação. Ou seja, toda a renderização da página está sendo renderizada nesse componente. 
-
-Esse componente possui alguns comportamentos, que foram abstraídos para as seguintes pastas: constants, interfaces e utils.
-    constants: local destinado para o armazenamento de variáveis constantes, que dificilmente sofrerão alteração.
-        TaxaJuros.ts: nesse componente é armazenado a lógica que faz o cálculo da idade do requisitante e retorna a taxa de juros de acordo com a faixa etária.
-    interfaces: local destinado para o armazenamento de interfaces de dados.
-        DadosEmprestimo.ts: nesse componente é armazenado a estrutura de dados para a simulação do empréstimo.
-        DadosResultadoEmprestimo.ts: nesse componente é armazenado a estrutura de dados de resposta após a simulação do empréstimo. 
-    utils: local destinado para o armazenamento de funções úteis, que podem ser utilizadas em outros componentes.
-        CalcularEmprestimo.ts: nesse componente é armazenado o cálculo do empréstimo a partir dos valores de entrada, definindo os valores de saída.
-        ValidarDados.ts: nesse componente é armazenada a função responsável pela validação dos dados de entrada do usuário.
+Separação da pasta src:
+- components: pasta em que estão localizados os componentes do projeto e os seus respectivos arquivos de estilo. Hoje, a separação do projeto se deu por três componentes principais: o Main.tsx, Informacoes.tsx e Resultados.tsx. O primeiro é responsável pela renderização da página como um todo. O segundo e o terceiro são componentes utilizados dentro do Main.tsx, o Informacoes.tsx renderizando as informações de entrada do formulário e o Resultados.tsx renderizando as informações de saída do formulário.
+- constants: pasta em que estão localizadas as variáveis ou tratamentos constantes dentro do projeto. Hoje, ele possui apenas o arquivo TaxaJuros.ts, que é responsável por retornar a taxa de juros a ser utilizada de acordo com a idade do requisitante.
+- interfaces: pasta em que estão localizadas as interfaces do projeto. Hoje, as duas interfaces utilizadas são DadosEmprestimo.ts e DadosResultadoEmprestimo.ts, o primeiro sendo responsável por estruturar os dados de entrada e o segundo responsável por estruturar os dados de saída.
+- tests: pasta em que estão localizados os arquivos de testes unitários. Nesse momento são testados os três arquivos que possuem funcionalidades: CalcularEmprestimo.test.ts, TaxaJuros.test.ts e ValidarDados.test.ts.
+- utils: pasta em que estão localizados os arquivos com tratamentos que podem ser abstraídos dos componentes para futura reutilização em outros pontos do sistema. Hoje, os comportamentos existentes são CalcularEmprestimo.ts e ValidarDados.ts.
 
 Essa estrutura por arquivos e pastas tem o objetivo de criar componentes com apenas uma responsabilidade, além desses componentes estarem localizados numa hierarquia de pastas que faça sentido e que facilite a organização do projeto.
