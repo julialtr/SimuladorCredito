@@ -1,18 +1,19 @@
 import React, { useState } from "react";
-import "./App.css";
+import "./Main.css";
 
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.min.css";
 
-import { DadosEmprestimo } from "./interfaces/dadosEmprestimo";
-import { DadosResultadoEmprestimo } from "./interfaces/dadosResultadoEmprestimo";
-import { calculoEmprestimo } from "./utils/CalculoEmprestimo.ts";
+import { DadosEmprestimo } from "./interfaces/DadosEmprestimo.ts";
+import { DadosResultadoEmprestimo } from "./interfaces/DadosResultadoEmprestimo.ts";
+
+import { calcularEmprestimo } from "./utils/CalcularEmprestimo.ts";
+import { validarDados } from "./utils/ValidarDados.ts";
 
 import { Card } from "primereact/card";
 import { Button } from "primereact/button";
 import { InputNumber } from "primereact/inputnumber";
 import { Calendar } from "primereact/calendar";
-import { validaDados } from "./utils/ValidaDados.ts";
 
 export default function App() {
   const [dados, setDados] = useState<DadosEmprestimo>({
@@ -37,7 +38,7 @@ export default function App() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const ehValido = validaDados(dados);
+    const ehValido = validarDados(dados);
 
     setErro(!ehValido);
 
@@ -49,11 +50,7 @@ export default function App() {
 
     if (!ehValido) return;
 
-    const valorParcela = calculoEmprestimo(
-      dados.valorEmprestimo,
-      dados.prazoMesesPagamento,
-      dados.dataNascimento
-    );
+    const valorParcela = calcularEmprestimo(dados);
 
     const valorTotal = valorParcela * dados.prazoMesesPagamento;
 
@@ -65,8 +62,8 @@ export default function App() {
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="container">
+      <header>
         <h1>Simulação de Crédito</h1>
         <span>
           Faça uma simulação de empréstimo de forma rápida e precisa. Nós
@@ -74,13 +71,13 @@ export default function App() {
           <strong>melhor proposta</strong>.
         </span>
       </header>
-      <div className="App-body">
+      <div className="body">
         <Card>
-          <div className="App-body-forms">
-            <div className="App-body-inputs">
+          <div className="forms">
+            <div className="inputs">
               <h4>Informações</h4>
-              <div className="App-body-inputs-container">
-                <div className="App-body-input">
+              <div className="inputs-container">
+                <div className="inputs-container-input">
                   <label>Valor do Empréstimo</label>
                   <InputNumber
                     min={0}
@@ -91,7 +88,7 @@ export default function App() {
                     onChange={(e) => handleChange("valorEmprestimo", e.value)}
                   />
                 </div>
-                <div className="App-body-input">
+                <div className="inputs-container-input">
                   <label>Prazo de Pagamento (Em meses)</label>
                   <InputNumber
                     min={0}
@@ -103,7 +100,7 @@ export default function App() {
                     }
                   />
                 </div>
-                <div className="App-body-input">
+                <div className="inputs-container-input">
                   <label>Data de Nascimento</label>
                   <Calendar
                     showIcon
@@ -115,10 +112,10 @@ export default function App() {
                 </div>
               </div>
             </div>
-            <div className="App-body-inputs">
+            <div className="inputs">
               <h4>Resultados</h4>
-              <div className="App-body-inputs-container">
-                <div className="App-body-input">
+              <div className="inputs-container">
+                <div className="inputs-container-input">
                   <label>Valor Total a Pagar</label>
                   <InputNumber
                     mode="currency"
@@ -128,7 +125,7 @@ export default function App() {
                     value={dadosResultado?.valorTotal}
                   />
                 </div>
-                <div className="App-body-input">
+                <div className="inputs-container-input">
                   <label>Valor Mensal das Parcelas</label>
                   <InputNumber
                     mode="currency"
@@ -138,7 +135,7 @@ export default function App() {
                     value={dadosResultado?.valorMensalParcelas}
                   />
                 </div>
-                <div className="App-body-input">
+                <div className="inputs-container-input">
                   <label>Total de Juros</label>
                   <InputNumber
                     mode="currency"
@@ -151,12 +148,12 @@ export default function App() {
               </div>
             </div>
           </div>
-          <div className="App-body-erro">
+          <div className="mensagem-erro">
             <small style={{ display: erro ? "inline" : "none" }}>
               *Preencha todos os dados para a simulação
             </small>
           </div>
-          <div className="App-body-button">
+          <div className="button-simular">
             <Button label="Simular" onClick={handleSubmit} />
           </div>
         </Card>

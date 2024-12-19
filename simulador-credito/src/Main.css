@@ -1,4 +1,4 @@
-.App {
+.container {
   display: flex;
   flex-direction: column;
   background-color: #fee9ce;
@@ -6,12 +6,12 @@
   color: #595148;
 }
 
-.App-header {
+header {
   padding: 20px;
   border-radius: 180px 0px 0px 0px;
 }
 
-.App-body {
+.body {
   justify-content: center;
   display: flex;
   height: 100%;
@@ -22,24 +22,22 @@
   border-radius: 180px 0px 0px 0px;
 }
 
-.App-body-forms {
+.forms {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.App-body-inputs {
-  h4 {
-    color: #4f51c0;
-  }
+.inputs > h4 {
+  color: #4f51c0;
 }
 
-.App-body-inputs-container {
+.inputs-container {
   display: flex;
   flex-direction: column;
 }
 
-.App-body-input {
+.inputs-container-input {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -52,12 +50,12 @@
   }
 
   .p-inputnumber-button {
-    background-color: #4f51c0; /* Cor de fundo */
-    border: none; /* Remove a borda */
+    background-color: #4f51c0;
+    border: none;
   }
 
   .p-button-icon-only {
-    background-color: #4f51c0; /* Cor de fundo */
+    background-color: #4f51c0;
   }
 
   .p-calendar {
@@ -72,17 +70,7 @@
   }
 }
 
-.App-body-button {
-  width: 100%;
-  justify-content: center;
-  display: flex;
-
-  button {
-    background-color: #4f51c0; /* Cor de fundo */
-  }
-}
-
-.App-body-erro {
+.mensagem-erro {
   width: 100%;
   justify-content: center;
   display: flex;
@@ -90,8 +78,18 @@
   color: rgb(189, 12, 12);
 }
 
+.button-simular {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+
+  button {
+    background-color: #4f51c0;
+  }
+}
+
 @media screen and (max-width: 880px) {
-  .App-body-forms {
+  .forms {
     flex-direction: column;
   }
 
@@ -101,10 +99,6 @@
 }
 
 @media screen and (max-width: 620px) {
-  .App-body-forms {
-    flex-direction: column;
-  }
-
   .p-card-body {
     padding: 40px 80px;
   }
