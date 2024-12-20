@@ -13,7 +13,7 @@ import { Button } from "primereact/button";
 import Informacoes from "./Informacoes.tsx";
 import Resultados from "./Resultados.tsx";
 
-export default function App() {
+export default function Main() {
   const [dados, setDados] = useState<DadosEmprestimo>({
     valorEmprestimo: 0,
     prazoMesesPagamento: 0,

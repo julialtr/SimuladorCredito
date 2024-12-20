@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Informacoes.css";
 
 import { DadosEmprestimo } from "../interfaces/DadosEmprestimo.ts";
@@ -18,12 +18,15 @@ export default function Informacoes({
   const [dados, setDados] = useState<DadosEmprestimo>(dadosEmprestimo);
 
   const handleChange = (name: string, value: any) => {
-    setDados((prev) => {
-      const novosDados = { ...prev, [name]: value };
-      handleUpdate(novosDados);
-      return novosDados;
-    });
+    setDados((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
+
+  useEffect(() => {
+    handleUpdate(dados);
+  }, [dados, handleUpdate]);
 
   return (
     <div className="informacoes">
@@ -32,6 +35,7 @@ export default function Informacoes({
         <div className="informacoes-input">
           <label>Valor do Empréstimo</label>
           <InputNumber
+            data-testid="input-valor-emprestimo"
             min={0}
             mode="currency"
             currency="BRL"
@@ -43,8 +47,8 @@ export default function Informacoes({
         <div className="informacoes-input">
           <label>Prazo de Pagamento (Em meses)</label>
           <InputNumber
+            data-testid="input-prazo-meses-pagamento"
             min={0}
-            max={120}
             useGrouping={false}
             value={dados?.prazoMesesPagamento}
             onChange={(e) => handleChange("prazoMesesPagamento", e.value)}

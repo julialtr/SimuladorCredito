@@ -19,6 +19,7 @@ export default function Resultados({
         <div className="resultados-input">
           <label>Valor Total a Pagar</label>
           <InputNumber
+            data-testid="input-valor-total"
             mode="currency"
             currency="BRL"
             locale="pt-BR"
@@ -29,6 +30,7 @@ export default function Resultados({
         <div className="resultados-input">
           <label>Valor Mensal das Parcelas</label>
           <InputNumber
+            data-testid="input-valor-mensal-parcelas"
             mode="currency"
             currency="BRL"
             locale="pt-BR"
@@ -39,6 +41,7 @@ export default function Resultados({
         <div className="resultados-input">
           <label>Total de Juros</label>
           <InputNumber
+            data-testid="input-total-juros"
             mode="currency"
             currency="BRL"
             locale="pt-BR"
