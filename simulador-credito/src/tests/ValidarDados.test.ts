@@ -1,5 +1,5 @@
 import { DadosEmprestimo } from "../interfaces/DadosEmprestimo";
-import { validarDados } from "../utils/ValidarDados.ts";
+import { validarDados } from "../utils/ValidarDados";
 
 describe("ValidarDados", () => {
   test("Data de Nascimento vazia", () => {

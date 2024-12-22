@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import "./Main.css";
 
-import { DadosEmprestimo } from "../interfaces/DadosEmprestimo.ts";
-import { DadosResultadoEmprestimo } from "../interfaces/DadosResultadoEmprestimo.ts";
+import { DadosEmprestimo } from "../interfaces/DadosEmprestimo";
+import { DadosResultadoEmprestimo } from "../interfaces/DadosResultadoEmprestimo";
 
-import { calcularEmprestimo } from "../utils/CalcularEmprestimo.ts";
-import { validarDados } from "../utils/ValidarDados.ts";
+import { calcularEmprestimo } from "../utils/CalcularEmprestimo";
+import { validarDados } from "../utils/ValidarDados";
 
 import { Card } from "primereact/card";
 import { Button } from "primereact/button";
 
-import Informacoes from "./Informacoes.tsx";
-import Resultados from "./Resultados.tsx";
+import Informacoes from "./Informacoes";
+import Resultados from "./Resultados";
 
 export default function Main() {
   const [dados, setDados] = useState<DadosEmprestimo>({
@@ -33,7 +33,7 @@ export default function Main() {
     setDados(novosDados);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
     const ehValido = validarDados(dados);

@@ -1,4 +1,4 @@
-import { taxaJuros } from "../constants/TaxaJuros.ts";
+import { taxaJuros } from "../constants/TaxaJuros";
 
 describe("TaxaJuros", () => {
   test("Solicitante com até 25 anos (22 anos)", () => {

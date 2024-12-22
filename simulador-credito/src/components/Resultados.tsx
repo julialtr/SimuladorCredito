@@ -1,7 +1,7 @@
 import React from "react";
 import "./Resultados.css";
 
-import { DadosResultadoEmprestimo } from "../interfaces/DadosResultadoEmprestimo.ts";
+import { DadosResultadoEmprestimo } from "../interfaces/DadosResultadoEmprestimo";
 
 import { InputNumber } from "primereact/inputnumber";
 

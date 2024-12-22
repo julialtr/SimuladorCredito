@@ -1,5 +1,5 @@
-import { taxaJuros } from "../constants/TaxaJuros.ts";
-import { DadosEmprestimo } from "../interfaces/DadosEmprestimo.ts";
+import { taxaJuros } from "../constants/TaxaJuros";
+import { DadosEmprestimo } from "../interfaces/DadosEmprestimo";
 
 export function calcularEmprestimo(dados: DadosEmprestimo): number {
   const taxaJurosMensal = taxaJuros(dados.dataNascimento) / 12;

@@ -1,5 +1,5 @@
-import { DadosEmprestimo } from "../interfaces/DadosEmprestimo.ts";
-import { calcularEmprestimo } from "../utils/CalcularEmprestimo.ts";
+import { DadosEmprestimo } from "../interfaces/DadosEmprestimo";
+import { calcularEmprestimo } from "../utils/CalcularEmprestimo";
 
 describe("CalcularEmprestimo", () => {
   test("Solicitante com até 25 anos", () => {

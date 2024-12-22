@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Informacoes.css";
 
-import { DadosEmprestimo } from "../interfaces/DadosEmprestimo.ts";
+import { DadosEmprestimo } from "../interfaces/DadosEmprestimo";
 
 import { InputNumber } from "primereact/inputnumber";
 import { Calendar } from "primereact/calendar";
