@@ -1,14 +1,19 @@
 .container {
   display: flex;
   flex-direction: column;
-  background-color: #fee9ce;
+  background-color: var(--background-header-color);
   height: 100vh;
-  color: #595148;
+  color: var(--background-header-title-color);
 }
 
 header {
   padding: 20px;
   border-radius: 180px 0px 0px 0px;
+}
+
+.header-theme {
+  display: flex;
+  justify-content: space-between;
 }
 
 .body {
@@ -20,6 +25,7 @@ header {
 .p-card {
   width: 100%;
   border-radius: 180px 0px 0px 0px;
+  background-color: var(--background-body-color);
 }
 
 .forms {
@@ -33,7 +39,7 @@ header {
   justify-content: center;
   display: flex;
   padding: 20px;
-  color: rgb(189, 12, 12);
+  color: var(--background-mensagem-erro-color);
 }
 
 .button-simular {
@@ -60,4 +66,23 @@ header {
   .p-card-body {
     padding: 40px 80px;
   }
+}
+
+:root {
+  --background-header-color: #fee9ce;
+  --background-header-title-color: #595148;
+  --background-body-color: #fff;
+  --background-mensagem-erro-color: #bd0c0c;
+  --background-primary-color: #4f51c0;
+  --background-label-color: #4b5563;
+
+}
+
+[data-theme="dark"] {
+  --background-header-color: #122f5c;
+  --background-header-title-color: #d6e3f8;
+  --background-body-color: #204070;
+  --background-mensagem-erro-color: var(--background-primary-color);
+  --background-primary-color: #e7cb28;
+  --background-label-color: #fff;
 }

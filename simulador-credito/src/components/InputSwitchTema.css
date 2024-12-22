@@ -1,0 +1,85 @@
+.input-switch * {
+  transition: 0.5s;
+}
+
+.input-switch-checkbox {
+  display: none;
+}
+
+.input-switch-container {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.input-switch-label {
+  width: 80px;
+  height: 40px;
+  border-radius: 999px;
+  background: #eedbc2;
+  box-shadow: 10px 10px 30px #0000000d inset;
+  cursor: pointer;
+  position: relative;
+}
+
+.input-switch-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 99px;
+  background: #faefe2;
+  box-shadow: 10px 10px 20px #0000000d,
+    -10px -10px 30px rgba(0, 0, 0, 0.05) inset;
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(10%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+svg {
+  width: 16px;
+  position: absolute;
+}
+
+.sun {
+  color: #ffd600;
+  margin-top: 0%;
+  opacity: 1;
+}
+
+.moon {
+  margin-top: -150%;
+  color: white;
+  opacity: 0;
+}
+
+input:checked + .input-switch-container {
+  .input-switch-label {
+    background: #315da0;
+    box-shadow: 10px 10px 30px #00000080 inset;
+
+    .input-switch-circle {
+      left: 100%;
+      transform: translate(-110%, -50%);
+      background: #315894;
+      box-shadow: 10px 10px 20px #00000080, -10px -10px 30px #00000080 inset;
+
+      .sun {
+        margin-top: 150%;
+        opacity: 0;
+      }
+
+      .moon {
+        margin-top: 0%;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+label:active .input-switch-circle {
+  width: 200px;
+}

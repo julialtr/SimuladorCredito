@@ -8,11 +8,13 @@ import { Calendar } from "primereact/calendar";
 
 interface InformacoesProps {
   dadosEmprestimo: DadosEmprestimo;
+  darkMode: boolean;
   handleUpdate: (novosDados: DadosEmprestimo) => void;
 }
 
 export default function Informacoes({
   dadosEmprestimo,
+  darkMode,
   handleUpdate,
 }: InformacoesProps) {
   const [dados, setDados] = useState<DadosEmprestimo>(dadosEmprestimo);
@@ -29,7 +31,7 @@ export default function Informacoes({
   }, [dados, handleUpdate]);
 
   return (
-    <div className="informacoes">
+    <div className="informacoes" data-theme={darkMode ? "dark" : "light"}>
       <h4>Informações</h4>
       <div className="informacoes-inputs">
         <div className="informacoes-input">

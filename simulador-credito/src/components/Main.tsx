@@ -12,6 +12,7 @@ import { Button } from "primereact/button";
 
 import Informacoes from "./Informacoes";
 import Resultados from "./Resultados";
+import InputSwitchTema from "./InputSwitchTema";
 
 export default function Main() {
   const [dados, setDados] = useState<DadosEmprestimo>({
@@ -28,9 +29,14 @@ export default function Main() {
     });
 
   const [erro, setErro] = useState<boolean>(false);
+  const [darkMode, setDarkMode] = useState<boolean>(false);
 
   const handleUpdate = (novosDados: DadosEmprestimo) => {
     setDados(novosDados);
+  };
+
+  const handleUpdateTheme = (darkMode: boolean) => {
+    setDarkMode(darkMode);
   };
 
   const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -60,9 +66,15 @@ export default function Main() {
   };
 
   return (
-    <div className="container">
+    <div className="container" data-theme={darkMode ? "dark" : "light"}>
       <header>
-        <h1>Simulação de Crédito</h1>
+        <div className="header-theme">
+          <h1>Simulação de Crédito</h1>
+          <InputSwitchTema
+            isDarkMode={darkMode}
+            handleUpdate={handleUpdateTheme}
+          />
+        </div>
         <span>
           Faça uma simulação de empréstimo de forma rápida e precisa. Nós
           precisamos de apenas três informações para te trazer a nossa{" "}
@@ -72,8 +84,15 @@ export default function Main() {
       <div className="body">
         <Card>
           <div className="forms">
-            <Informacoes dadosEmprestimo={dados} handleUpdate={handleUpdate} />
-            <Resultados dadosResultadoEmprestimo={dadosResultado} />
+            <Informacoes
+              dadosEmprestimo={dados}
+              darkMode={darkMode}
+              handleUpdate={handleUpdate}
+            />
+            <Resultados
+              dadosResultadoEmprestimo={dadosResultado}
+              darkMode={darkMode}
+            />
           </div>
           <div className="mensagem-erro">
             <small style={{ display: erro ? "inline" : "none" }}>

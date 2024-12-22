@@ -7,13 +7,15 @@ import { InputNumber } from "primereact/inputnumber";
 
 interface ResultadosProps {
   dadosResultadoEmprestimo: DadosResultadoEmprestimo;
+  darkMode: boolean;
 }
 
 export default function Resultados({
   dadosResultadoEmprestimo,
+  darkMode,
 }: ResultadosProps) {
   return (
-    <div className="resultados">
+    <div className="resultados" data-theme={darkMode ? "dark" : "light"}>
       <h4>Resultados</h4>
       <div className="resultados-inputs">
         <div className="resultados-input">
