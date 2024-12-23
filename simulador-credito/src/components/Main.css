@@ -48,8 +48,15 @@ header {
   display: flex;
 
   button {
-    background-color: #4f51c0;
+    background-color: var(--background-primary-color);
+    color: var(--background-button-label-color);
   }
+}
+
+input {
+  background-color: var(--background-input-color);
+  color: var(--background-label-color);
+  border-color: var(--background-input-border-color);
 }
 
 @media screen and (max-width: 880px) {
@@ -71,11 +78,13 @@ header {
 :root {
   --background-header-color: #fee9ce;
   --background-header-title-color: #595148;
-  --background-body-color: #fff;
+  --background-body-color: white;
   --background-mensagem-erro-color: #bd0c0c;
   --background-primary-color: #4f51c0;
   --background-label-color: #4b5563;
-
+  --background-button-label-color: white;
+  --background-input-color: white;
+  --background-input-border-color: #d1d5db;
 }
 
 [data-theme="dark"] {
@@ -85,4 +94,7 @@ header {
   --background-mensagem-erro-color: var(--background-primary-color);
   --background-primary-color: #e7cb28;
   --background-label-color: #fff;
+  --background-button-label-color: #204070;
+  --background-input-color: #23395a;
+  --background-input-border-color: #122f5c;
 }

@@ -12,7 +12,7 @@ import { Button } from "primereact/button";
 
 import Informacoes from "./Informacoes";
 import Resultados from "./Resultados";
-import InputSwitchTema from "./InputSwitchTema";
+import InputSwitchTheme from "./InputSwitchTheme";
 
 export default function Main() {
   const [dados, setDados] = useState<DadosEmprestimo>({
@@ -70,7 +70,7 @@ export default function Main() {
       <header>
         <div className="header-theme">
           <h1>Simulação de Crédito</h1>
-          <InputSwitchTema
+          <InputSwitchTheme
             isDarkMode={darkMode}
             handleUpdate={handleUpdateTheme}
           />

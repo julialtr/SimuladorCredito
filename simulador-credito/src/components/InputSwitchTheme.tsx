@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import "./InputSwitchTema.css";
+import "./InputSwitchTheme.css";
 
-interface InputSwitchTemaProps {
+interface InputSwitchThemeProps {
   isDarkMode: boolean;
   handleUpdate: (darkMode: boolean) => void;
 }
 
-export default function InputSwitchTema({
+export default function InputSwitchTheme({
   isDarkMode,
   handleUpdate,
-}: InputSwitchTemaProps) {
+}: InputSwitchThemeProps) {
   const [darkMode, setDarkMode] = useState<boolean>(isDarkMode);
 
   const handleChange = () => {
