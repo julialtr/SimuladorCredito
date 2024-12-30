@@ -51,7 +51,8 @@ Nesse caso, o requisitante tem 44 anos, considerando a data da escrita desta doc
 # Passo a passo para executar
 - Clonar o repositório
 - Instalar dependências com o npm install
-- Dar início à aplicação pelo comando npm start 
+- Dar início à aplicação pelo comando npm start
+- Para rodar os testes, utilizar o comando npm test
 
 # Decisões de Arquitetura e Estrutura do Projeto
 Foi utilizado a linguagem de programação Typescript juntamente com o framework React. Para testes, foi utilizada a biblioteca Jest.
