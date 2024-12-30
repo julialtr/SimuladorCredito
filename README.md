@@ -47,11 +47,6 @@ Nesse caso, o requisitante tem 44 anos, considerando a data da escrita desta doc
 # Instruções de setup
     Node versão 18.20.5
     React versão 18.2.0
-    Biblioteca web-vitals
-    Biblioteca primereact
-    Biblioteca eslint
-    Biblioteca jest versão 29.0.0
-    Biblioteca ts-jest, @types/jest, @testing-library/jest-dom, @testing-library/user-event, @testing-library/dom e @types/react
 
 # Passo a passo para executar
 - Clonar o repositório
@@ -67,7 +62,7 @@ Separação principal do projeto:
 - src: pasta em que estão localizadas as configurações do projeto e o código-fonte
 
 Separação da pasta src:
-- components: pasta em que estão localizados os componentes do projeto e os seus respectivos arquivos de estilo. Hoje, a separação do projeto se deu por três componentes principais: o Main.tsx, Informacoes.tsx e Resultados.tsx. O primeiro é responsável pela renderização da página como um todo. O segundo e o terceiro são componentes utilizados dentro do Main.tsx, o Informacoes.tsx renderizando as informações de entrada do formulário e o Resultados.tsx renderizando as informações de saída do formulário.
+- components: pasta em que estão localizados os componentes do projeto e os seus respectivos arquivos de estilo. Hoje, a separação do projeto se deu por quatro componentes principais: o Main.tsx, Informacoes.tsx, Resultados.tsx e o InputSwitchTheme.tsx. O primeiro é responsável pela renderização da página como um todo. O segundo e o terceiro são componentes utilizados dentro do Main.tsx, o Informacoes.tsx renderizando as informações de entrada do formulário e o Resultados.tsx renderizando as informações de saída do formulário. Já o quarto, é responsável pelo componente que irá realizar a troca de tema de toma a aplicação.
 - constants: pasta em que estão localizadas as variáveis ou tratamentos constantes dentro do projeto. Hoje, ele possui apenas o arquivo TaxaJuros.ts, que é responsável por retornar a taxa de juros a ser utilizada de acordo com a idade do requisitante.
 - interfaces: pasta em que estão localizadas as interfaces do projeto. Hoje, as duas interfaces utilizadas são DadosEmprestimo.ts e DadosResultadoEmprestimo.ts, o primeiro sendo responsável por estruturar os dados de entrada e o segundo responsável por estruturar os dados de saída.
 - tests: pasta em que estão localizados os arquivos de testes unitários e testes de integração. Nesse momento são testados os três arquivos que possuem funcionalidades para os teste unitários: CalcularEmprestimo.test.ts, TaxaJuros.test.ts e ValidarDados.test.ts. Já o teste de integração entre os componentes, é feito no arquivo Main.test.tsx.
